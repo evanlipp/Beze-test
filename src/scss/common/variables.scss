@@ -1,17 +1,31 @@
-$font-primary: 400 16px/1 Nunito, sans-serif;
-$font-logo: 400 30px/1 DaysOne, sans-serif;
+$font-primary-small: 400 14px/20px Roboto, san-serif;
+$font-primary-regular: 400 16px/1.5 Roboto, san-serif;
+$font-header: 700 20px/1.2 Roboto-Bold, san-serif;
 
-$font-color-primary: rgb(73, 71, 71);
-$font-color-secondary: rgb(245, 245, 245);
-$font-color-error: rgb(248, 3, 3);
+$font-color-primary:  #353535;
+$font-color-secondary: #656565;
+$font-color-active: #0A0A0A;
+$font-color-disabled: #A4A4A4;
+$font-color-button-primary: #FFFFFF;
+$font-color-negative: #D91D0B;
+$font-color-error: #B80020;
+$font-color-button-secondary-blue: #045cc4;
 
-$bg-primary: linear-gradient(45deg, rgb(198, 249, 251), rgb(223, 219, 213));
-$bg-secondary: rgb(245, 245, 245);
-$bg-item-light: rgb(255, 255, 255);
+$bg-primary: #FFFFFF;
+$bg-secondary: #EDEDED;
+$bg-selected: #f6f6f6;
+$bg-drop-area: #f6f6f6;
 
-$bg-button: rgb(245, 245, 245);
-$bg-button-hover: rgba(212, 245, 239, 0.995);
-$bg-button-active: rgba(150, 215, 203, 0.995);
+$bg-button-primary: rgb(64, 134, 196);
+$bg-button-primary-hover: rgba(50, 107, 157);
+$bg-button-primary-active: rgba(38, 80, 118);
 
-$border-primary: rgb(0, 128, 128, 0.5);
-$border-secondary: rgb(245, 245, 245);
+$bg-button-secondary-blue: rgba(232, 242, 254, 1);
+$bg-button-secondary-blue-hover: rgba(217, 234, 254, 1);
+$bg-button-secondary-blue-active: rgba(166, 206, 253, 1);
+
+$border-primary: #656565;
+$border-secondary: #c8c8c8;
+$border-active: #0A0A0A;
+$border-error: #b80020;
+$border-light: #ededed;

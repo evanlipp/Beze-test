@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font: $font-primary;
 }
 
 html {
@@ -11,35 +10,30 @@ html {
 }
 
 body {
-
+  font: $font-primary-regular;
   color: $font-color-primary;
   width: 100%;
   height: 100%;
-  background: $bg-primary;
- background-repeat: no-repeat;
+  background: rgb(221, 212, 212);
 }
 
+h4 {
+  font: $font-header;
+}
 
 a {
   text-decoration: none;
-  color: inherit;
 }
 
 .error {
   color: $font-color-error;
 }
 
-.button {
-  padding: 10px 15px;
-  border: 1px solid $border-primary;
-  border-radius: 7px;
-  background-color: $bg-secondary;
+span {
+  color: $font-color-negative;
+}
 
-  &:hover {
-    background-color: $bg-button-hover;
-  }
-
-  &:active {
-    background-color: $bg-button-active;
-  }
+.error-message {
+  font: $font-primary-small;
+  color: $font-color-error
 }

@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+
 
 const props = defineProps({
   visibility: {
@@ -31,15 +31,19 @@ const hideModal = () => {
   left: 0;
   right: 0;
   bottom: 0;
+  align-items: center;
+  justify-content: center;
   background: rgb(0, 0, 0, 0.5);
 
   &__content {
-    margin: auto;
-    padding: 20px;
-    background: $bg-secondary;
-    border-radius: 7px;
-    min-height: 50px;
-    min-width: 300px;
+    padding: 24px;
+    max-width: 770px;
+    width: 100%;
+    
+    display: flex;
+    background: $bg-primary;
+    border: 1px solid $border-light;
+    border-radius: 16px;
   }
 }
 
