@@ -10,6 +10,10 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['update:modelValue'])
+
+const updateInput = (event) => {
+  emit('update:modelValue', event.target.value)
+}
 </script>
 
 <style lang="scss" scoped>

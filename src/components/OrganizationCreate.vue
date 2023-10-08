@@ -12,16 +12,16 @@
     <div class="form__content">
       <div>
         <p class="form__subtitle"><span>*</span> Тип</p>
-        <MySelect :options="selectOptions" :visibility="isDropped"
+        <MySelect :options="selectOptions" :error="mocError" :visibility="isDropped" @selectedOption="selectedOption"
           @click.stop="isDropped = !isDropped" placeholder="Выберите тип" />
       </div>
       <div>
         <p class="form__subtitle"><span>*</span> Название организации</p>
-        <MyInput placeholder="Ведите название" />
+        <MyInput v-model="name" :error="mocError" placeholder="Ведите название" />
       </div>
       <div>
         <p class="form__subtitle"><span>*</span> Описание</p>
-        <MyTextarea placeholder="Введите описание" />
+        <MyTextarea v-model="description" placeholder="Введите описание" />
         <p class="form__text">Описание в модуле на сайте не показывается</p>
       </div>
       <div>
@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="form__button">
-      <MyButton class="button button__primary">
+      <MyButton class="button button__primary" @click="saveOrganization">
         <template v-slot:text>Сохранить</template>
       </MyButton>
     </div>
@@ -63,18 +63,46 @@ import MyButton from '@/components/UI/MyButton.vue';
 import SvgIcon from '@/components/UI/SvgIcon.vue';
 import { ref } from 'vue';
 import { useDropZone } from '@vueuse/core'
+import { useStore } from 'vuex'
 
+const store = useStore()
 const emit = defineEmits(['hideModal'])
-
-const hideModal = () => {
-  emit('hideModal')
-}
 
 const isDropped = ref(false)
 const closeDropDown = () => {
   if (isDropped.value === true) {
     isDropped.value = false
   }
+}
+
+const hideModal = () => {
+  emit('hideModal')
+}
+
+const type = ref()
+const name = ref()
+const description = ref()
+
+const mocError = ref(false)
+
+const saveOrganization = () => {
+  const profile = {
+    type: type.value,
+    name: name.value,
+    description: description.value,
+    logo: imageUrl.value
+  }
+  if (!profile.type || !profile.name) {
+    alert('заполните обязательные поля')
+    mocError.value = true
+  } else {
+    store.commit('saveOrganizationProfile', profile)
+    hideModal()
+  }
+}
+
+const selectedOption = (option) => {
+  type.value = option.name
 }
 
 const selectOptions = ref([
@@ -115,15 +143,22 @@ useDropZone(refDropZone, onDrop)
 
 <style lang="scss" scoped>
 .form {
-  @extend %form;
-
-  &__content {
-    @extend %form;
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
   &__header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   &__subtitle {

@@ -7,7 +7,7 @@
     <p class="error-message" v-if="error">{{ errorMessage }}</p>
     <div class="select__options" v-if="visibility">
       <SelectItem class="select__option" v-for="option in options" :key="option.value" :option="option"
-        @selectOption="showSelectedOption"/>
+        @selectedOption="showSelectedOption"/>
     </div>
   </div>
   
@@ -38,13 +38,14 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['selectedOption'])
 
 const checked = ref(false)
 const checkedOption = ref(props.placeholder)
 const showSelectedOption = (option) => {
   checkedOption.value = option.name
   checked.value = true
+  emit('selectedOption', option)
 }
 
 const changeOption = (event) => {

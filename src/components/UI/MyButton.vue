@@ -18,6 +18,9 @@ const click = () => {
   font: $font-primary-small;
   font-weight: 500;
   border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
 
   &__primary {
     padding: 12px 16px 12px 16px;
@@ -66,6 +69,12 @@ const click = () => {
         background-color: #aaaaaa;
       }
     }
+  }
+
+  &__add-building {
+    width: 100%;
+    padding: 10px 12px 10px 12px;
+    margin-top: -8px;
   }
 }
 </style>

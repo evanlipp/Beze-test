@@ -5,10 +5,12 @@
 </template>
 
 <script setup>
+import "@/assets/icons/bin.svg"
 import "@/assets/icons/close.svg";
-import "@/assets/icons/plus.svg"
-import "@/assets/icons/dropdown.svg"
-import "@/assets/icons/checked.svg"
+import "@/assets/icons/plus.svg";
+import "@/assets/icons/dropdown.svg";
+import "@/assets/icons/checked.svg";
+import "@/assets/icons/edit.svg";
 
 const props = defineProps({
   iconName: String,
